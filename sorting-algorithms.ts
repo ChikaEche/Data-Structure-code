@@ -54,6 +54,31 @@ class SorthingAlgorithms {
         }
         return array
       }
+
+      shellSort(array: number[] | string[]) {
+        let found = false;
+        let index = 0
+        for (let interval = Math.floor(array.length/2); interval > 0; interval = Math.floor(interval/2)) {
+            for(let i = 0; i < (array.length - interval); i++) {
+              let smallest = array[i];
+              let step = interval
+              while((step+i) < (array.length)) {
+                if(smallest > array[step+i]) {
+                  smallest = array[step+i]
+                  index = step+i;
+                  found = true;
+                }
+                step = step + interval
+              }
+              if(found) {
+                const hold = array[i];
+                array[i] = array[index]
+                array[index] = hold
+                found = false
+              }
+            }
+          }
+      }
   }
   
   let sort = new SorthingAlgorithms();
