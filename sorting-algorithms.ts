@@ -22,7 +22,20 @@ class SorthingAlgorithms {
       return array;
     }
   
-
+    bubbleSort(array: number[] | string[]) {
+        let arrayLength = array.length;
+        for(let i = 0; i < array.length; i++) {
+          for(let k = 1; k < arrayLength; k++) {
+            if(array[k] < array[k - 1]) {
+              const temp = array[k];
+              array[k] = array[k-1];
+              array[k-1] = temp;
+            }
+          }
+          --arrayLength;
+        }
+        return array
+      }
   }
   
   let sort = new SorthingAlgorithms();
