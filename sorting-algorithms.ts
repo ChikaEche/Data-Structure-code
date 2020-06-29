@@ -36,6 +36,24 @@ class SorthingAlgorithms {
         }
         return array
       }
+
+      insertionSort(array: number[] | string[]) {
+        for(let i = 0; i < array.length; i++) {
+          if(array[i] > array[i+1]) {
+            const temp = array[i];
+            array[i] = array[i+1];
+            array[i+1] = temp;
+            for(let k = i; k > 0; k--) {
+              if(array[k] < array[k-1]) {
+                const temp = array[k];
+                array[k] = array[k-1];
+                array[k-1] = temp;
+              }
+            }
+          }
+        }
+        return array
+      }
   }
   
   let sort = new SorthingAlgorithms();
